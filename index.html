@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <script src="https://rawgit.com/fricke/test-baobab-js-vs-immutable-js/master/test.js"></script>
+        <script src="https://rawgit.com/fricke/test-baobab-js-vs-immutable-js/master/updateData.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/3.7.6/immutable.js"></script>
+        <script src="https://rawgit.com/Yomguithereal/baobab/master/build/baobab.min.js"></script>
+
+        <script>
+            var baobabStore = new Baobab(data, {
+                asynchronous: false
+            });
+            var immjsStore = Immutable.fromJS(data);
+
+            baobabStore.set(["app", "load", "data"], update.data);
+
+            immjsStore = immjsStore.setIn(["app", "load", "data"], update.data);
+
+            console.log(baobabStore.get());
+            console.log(immjsStore.toJSON());
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
